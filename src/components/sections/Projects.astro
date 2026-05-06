@@ -26,7 +26,7 @@ const { data } = Astro.props as {
             <div class="carousel flex overflow-hidden scroll-smooth">
               {project.images.map((image, index) => (
                 <img
-                  src={image}
+                  src={`${import.meta.env.BASE_URL}${image.replace(/^\/+/, "")}`}
                   alt={`${project.title} imagen ${index + 1}`}
                   class="carousel-item h-64 w-full flex-shrink-0 object-cover md:h-72"
                   loading="lazy"

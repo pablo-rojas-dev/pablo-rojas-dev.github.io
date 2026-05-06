@@ -2,18 +2,22 @@
 import { CircleChevronDown, AtSign } from "@lucide/astro";
 import LanguageToggle from "../../components/ui/LanguageToggle.astro";
 
+const BASE_URL = import.meta.env.BASE_URL;
 const { lang = "en" } = Astro.props;
 
 const isSpanish = lang === "es";
-const cvUrl = isSpanish ? "/docs/cv-es.pdf" : "/docs/cv-en.pdf";
+const cvUrl = isSpanish
+  ? `${BASE_URL}docs/cv-es.pdf`
+  : `${BASE_URL}docs/cv-en.pdf`;
+
 const mailToastMessage = isSpanish
   ? "Correo copiado"
   : "Email copied";
 
-const githubIcon = "/icons/github.svg";
-const linkedinIcon = "/icons/linkedin.svg";
-const cvIcon = "/icons/cv.svg";
-const mailIcon = "/icons/mail.svg";
+const githubIcon = `${BASE_URL}icons/github.svg`;
+const linkedinIcon = `${BASE_URL}icons/linkedin.svg`;
+const cvIcon = `${BASE_URL}icons/cv.svg`;
+const mailIcon = `${BASE_URL}icons/mail.svg`;
 ---
 
 <section
@@ -47,7 +51,7 @@ const mailIcon = "/icons/mail.svg";
           rel="noopener noreferrer"
           class="flex h-14 w-14 items-center justify-center rounded-full bg-lime-400 transition-transform duration-300 hover:scale-110"
         >
-          <img src="/icons/github.svg" alt="GitHub" class="h-7 w-7" />
+          <img src={githubIcon} alt="GitHub" class="h-7 w-7" />
         </a>
 
         <a
@@ -56,7 +60,7 @@ const mailIcon = "/icons/mail.svg";
           rel="noopener noreferrer"
           class="flex h-14 w-14 items-center justify-center rounded-full bg-lime-400 transition-transform duration-300 hover:scale-110"
         >
-          <img src="/icons/linkedin.svg" alt="LinkedIn" class="h-7 w-7" />
+          <img src={linkedinIcon} alt="LinkedIn" class="h-7 w-7" />
         </a>
 
         <a

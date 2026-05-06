@@ -23,7 +23,7 @@ const { data } = Astro.props as {
           data-url={blog.blogUrl}
         >
           <img
-            src={blog.cover}
+            src={`${import.meta.env.BASE_URL}${blog.cover.replace(/^\/+/, "")}`}
             alt={blog.title}
             class="h-24 w-full rounded-lg border border-black object-cover"
             loading="lazy"
