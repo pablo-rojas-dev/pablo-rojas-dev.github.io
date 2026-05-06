@@ -1,0 +1,54 @@
+---
+import { Send } from "@lucide/astro";
+import type { ContactData } from "../../types";
+
+const { data } = Astro.props as {
+  data: ContactData;
+};
+
+const mail = "pablorojas.job@gmail.com"
+
+const mailHref = `mailto:${mail}?subject=${encodeURIComponent(
+  data.subject
+)}&body=${encodeURIComponent(data.body)}`;
+---
+
+<section id="contact" class="relative h-dvh w-full py-16">
+  <div class="mx-auto flex w-[70%] max-w-4xl flex-col items-center px-4 text-center md:w-full">
+    <img
+      src={data.gif}
+      alt={data.title}
+      class="mb-6 h-40 w-40 object-contain"
+      loading="lazy"
+    />
+
+    <h2 class="mb-6 text-center text-5xl font-bold">
+      {data.title}
+    </h2>
+
+    <p class="mb-8 max-w-2xl text-lg leading-relaxed">
+      {data.message}
+    </p>
+
+    <div class="flex w-full max-w-xl flex-col items-center gap-3 sm:flex-row">
+      <button
+        type="button"
+        class="copy-email-bar flex-1 cursor-pointer select-none rounded-full border border-black px-6 py-3 text-center text-lg font-meidum transition hover:scale-[1.03] hover:bg-lime-400"
+        data-copy-email
+        data-email={mail}
+        data-toast="mail-toast"
+        aria-label="Copy email"
+      >
+        {mail}
+      </button>
+
+      <a
+        href={mailHref}
+        class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-black transition hover:scale-110 hover:bg-lime-400"
+        aria-label="Send email"
+      >
+        <Send class="h-6 w-6" />
+      </a>
+    </div>
+  </div>
+</section>

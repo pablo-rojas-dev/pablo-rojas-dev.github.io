@@ -1,0 +1,23 @@
+{
+    "title": "Blogs",
+    "items": [
+        {
+            "title": "My blog 1",
+            "cover": "/blogs/blog-1.png",
+            "blogUrl": "https://google.com",
+            "tags": ["Draw.io","Google sheets","SQL"]
+        },
+        {
+            "title": "My blog 2",
+            "cover": "/blogs/blog-2.png",
+            "blogUrl": "https://google.com",
+            "tags": ["Draw.io","Google sheets","SQL"]
+        },
+        {
+            "title": "My blog 3",
+            "cover": "/blogs/blog-3.png",
+            "blogUrl": "https://google.com",
+            "tags": ["Draw.io","Google sheets","SQL"]
+        }
+    ]
+}

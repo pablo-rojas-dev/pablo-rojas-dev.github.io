@@ -1,0 +1,26 @@
+{
+    "title": "Experiencia",
+    "items": [
+        {
+            "dateRange": "2023 - 2024",
+            "title": "Trabajo 1",
+            "jobUrl": "https://github.com",
+            "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Sit amet consectetur adipiscing elit quisque faucibus ex. Adipiscing elit quisque faucibus ex sapien vitae pellentesque.",
+            "tags": ["React", "PostgreSQL", "SpringBoot"]
+        },
+        {
+            "dateRange": "2024 - 2025",
+            "title": "Trabajo 2",
+            "jobUrl": "https://github.com",
+            "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Sit amet consectetur adipiscing elit quisque faucibus ex. Adipiscing elit quisque faucibus ex sapien vitae pellentesque.",
+            "tags": ["React", "PostgreSQL", "SpringBoot"]
+        },
+        {
+            "dateRange": "2025 - 2026",
+            "title": "Trabajo 3",
+            "jobUrl": "https://github.com",
+            "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Sit amet consectetur adipiscing elit quisque faucibus ex. Adipiscing elit quisque faucibus ex sapien vitae pellentesque.",
+            "tags": ["React", "PostgreSQL", "SpringBoot"]
+        }
+    ]
+}

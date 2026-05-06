@@ -1,0 +1,79 @@
+---
+import {
+  UserRound,
+  BriefcaseBusiness,
+  FolderOpen,
+  Award,
+  GraduationCap,
+  NotepadText,
+} from "@lucide/astro";
+
+const navItems = [
+  { href: "#about", label: "About", Icon: UserRound },
+  { href: "#projects", label: "Projects", Icon: FolderOpen },
+  { href: "#experience", label: "Experience", Icon: BriefcaseBusiness },
+  { href: "#achievements", label: "Achievements", Icon: Award},
+  { href: "#certificates", label: "Certificates", Icon: GraduationCap },
+  { href: "#blogs", label: "Blogs", Icon: NotepadText },
+];
+---
+
+<nav
+  id="section-navbar"
+  class="fixed left-1/2 top-6 z-50 hidden -translate-x-1/2 rounded-full border border-black/10 bg-white/40 px-3 py-2 shadow-md backdrop-blur-xl transition-all duration-300"
+>
+  <ul class="flex items-center gap-1">
+    {
+      navItems.map(({ href, label, Icon }) => (
+        <li>
+          <a
+            href={href}
+            aria-label={label}
+            title={label}
+            class="flex size-9 items-center justify-center rounded-full text-black transition hover:scale-105 hover:bg-lime-400"
+          >
+            <Icon size={18} stroke-width={1.8} />
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<script>
+  const navbar = document.getElementById("section-navbar");
+  const hero = document.getElementById("hero");
+
+  if (navbar && hero) {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        const showNavbar = !entry.isIntersecting;
+
+        navbar.classList.toggle("hidden", !showNavbar);
+        navbar.classList.toggle("flex", showNavbar);
+      },
+      {
+        threshold: 0.1,
+      }
+    );
+
+    observer.observe(hero);
+  }
+
+  document.querySelectorAll<HTMLAnchorElement>("#section-navbar a").forEach((link) => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      const href = link.getAttribute("href");
+
+      if (!href) return;
+
+      const target = document.querySelector<HTMLElement>(href);
+
+      target?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    });
+  });
+</script>

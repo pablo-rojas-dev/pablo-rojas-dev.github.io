@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;600;700&display=swap');
+@import "tailwindcss";
+
+*{
+  cursor: url('/cursor/cursor.cur'), auto;
+}
+
+@theme {
+  --font-sans: "Oxanium", sans-serif;
+}
+
+html {
+  font-family: var(--font-sans);
+}
+
+@layer components {
+  .hero-icon-button {
+    @apply 
+    flex size-14 
+    items-center 
+    justify-center 
+    rounded-full 
+    border
+    bg-black 
+    border-2
+    text-white 
+    transition-all 
+    duration-300 
+    hover:bg-white 
+    hover:text-black 
+    hover:border-black;
+  }
+
+  .icon {
+    width: 22px;
+    height: 22px;
+    background-color: currentColor;
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+
+    -webkit-mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+  }
+
+  .github {
+    mask-image: url("/icons/github.svg");
+    -webkit-mask-image: url("/icons/github.svg");
+  }
+
+}
+
+@theme {
+  --animate-float: float 2.5s ease-in-out infinite;
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-12px);
+    }
+  }
+}

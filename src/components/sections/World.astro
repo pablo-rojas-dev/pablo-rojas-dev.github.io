@@ -1,0 +1,408 @@
+<div class="world-container relative w-full h-full min-h-0 overflow-visible cursor-grab active:cursor-grabbing">
+  <canvas class="world-canvas absolute left-1/2 top-1/2 block h-[115%] w-[115%] -translate-x-1/2 -translate-y-1/2"></canvas>
+</div>
+
+<script>
+  import * as THREE from "three";
+
+  const containerElement = document.querySelector(".world-container") as HTMLElement | null;
+  const canvasElement = document.querySelector(".world-canvas") as HTMLCanvasElement | null;
+
+  if (!containerElement || !canvasElement) {
+    throw new Error("No se encontró el contenedor o canvas de World.astro");
+  }
+
+  const container = containerElement;
+  const canvas = canvasElement;
+
+  const scene = new THREE.Scene();
+
+  const camera = new THREE.PerspectiveCamera(
+    45,
+    container.clientWidth / container.clientHeight,
+    0.1,
+    100
+  );
+
+  camera.position.z = 3.6;
+
+  const renderer = new THREE.WebGLRenderer({
+    canvas,
+    antialias: true,
+    alpha: true,
+  });
+
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+  const renderScale = 1.25;
+
+  renderer.setSize(
+    container.clientWidth * renderScale,
+    container.clientHeight * renderScale,
+    false
+  );
+
+  const globeGroup = new THREE.Group();
+  scene.add(globeGroup);
+
+  const texture = new THREE.TextureLoader().load("/textures/world-map-gray.jpg");
+
+  const globe = new THREE.Mesh(
+    new THREE.SphereGeometry(1, 96, 96),
+    new THREE.MeshBasicMaterial({
+      map: texture,
+      transparent: true,
+    })
+  );
+
+  globeGroup.add(globe);
+
+  function latLonToVector3(lat: number, lon: number, radius = 1.035) {
+    const phi = (90 - lat) * (Math.PI / 180);
+    const theta = (lon + 180) * (Math.PI / 180);
+
+    return new THREE.Vector3(
+      -(radius * Math.sin(phi) * Math.cos(theta)),
+      radius * Math.cos(phi),
+      radius * Math.sin(phi) * Math.sin(theta)
+    );
+  }
+
+  const continentPoints: [number, number][] = [
+    [40, -100],
+    [20, -100],
+    [-15, -60],
+    [-30, -65],
+    [50, 10],
+    [42, 25],
+    [5, 20],
+    [-20, 25],
+    [30, 100],
+    [45, 90],
+    [20, 78],
+    [-25, 135],
+  ];
+
+  type Connection = {
+    mesh: THREE.Mesh;
+    curve: THREE.QuadraticBezierCurve3;
+    progress: number;
+    speed: number;
+    holdTime: number;
+    fadeTime: number;
+    state: "drawing" | "holding" | "fading";
+  };
+
+  type Ripple = {
+    mesh: THREE.Mesh;
+    elapsed: number;
+  };
+
+  const ripples: Ripple[] = [];
+
+  const connections: Connection[] = [];
+
+  // Cantidad de conexiones simultáneas
+  const activeConnectionCount = 20;
+
+  // Velocidad de dibujo
+  const connectionMinSpeed = 0.005;
+  const connectionMaxSpeed = 0.01;
+
+  // true: desaparece gradualmente mientras se dibuja
+  // false: desaparece después de conectar dos puntos
+  const fadeWhileDrawing = true;
+
+  // Tiempo visible después de conectar, si fadeWhileDrawing es false
+  const connectionHoldDuration = 1;
+
+  // Duración del desvanecimiento final
+  const connectionFadeDuration = 1.15;
+
+  // Grosor de la línea de conexión
+  const connectionLineThickness = 0.0048;
+
+  // Efecto de onda al llegar al destino
+  const rippleEnabled = true;
+  const rippleColor = 0x9ae600;
+  const rippleStartRadius = 0.012;
+  const rippleMaxRadius = 0.09;
+  const rippleDuration = 0.9;
+  const rippleTubeThickness = 0.0025;
+
+  function getRandomPoint() {
+    return continentPoints[Math.floor(Math.random() * continentPoints.length)];
+  }
+
+  function createConnection() {
+    const start = getRandomPoint();
+    let end = getRandomPoint();
+
+    while (start[0] === end[0] && start[1] === end[1]) {
+      end = getRandomPoint();
+    }
+
+    const startVec = latLonToVector3(start[0], start[1], 1.08);
+    const endVec = latLonToVector3(end[0], end[1], 1.08);
+
+    const distance = startVec.distanceTo(endVec);
+
+    const arcHeight = 1.45 + distance * 0.22;
+
+    const midVec = startVec
+      .clone()
+      .add(endVec)
+      .normalize()
+      .multiplyScalar(arcHeight);
+
+    const curve = new THREE.QuadraticBezierCurve3(startVec, midVec, endVec);
+
+    const geometry = new THREE.TubeGeometry(curve, 1, connectionLineThickness, 8, false);
+
+    const material = new THREE.MeshBasicMaterial({
+      color: 0x9ae600,
+      transparent: true,
+      opacity: 0.95,
+      depthWrite: false,
+    });
+
+    const mesh = new THREE.Mesh(geometry, material);
+    globeGroup.add(mesh);
+
+    connections.push({
+      mesh,
+      curve,
+      progress: 0.02,
+      speed: connectionMinSpeed + Math.random() * (connectionMaxSpeed - connectionMinSpeed),
+      holdTime: 0,
+      fadeTime: 0,
+      state: "drawing",
+    });
+  }
+
+  for (let i = 0; i < activeConnectionCount; i++) {
+    createConnection();
+  }
+
+  function resetConnection(index: number) {
+    const current = connections[index];
+    globeGroup.remove(current.mesh);
+    current.mesh.geometry.dispose();
+    (current.mesh.material as THREE.Material).dispose();
+    connections.splice(index, 1);
+    createConnection();
+  }
+
+  function updateConnectionGeometry(connection: Connection) {
+    const visibleProgress = THREE.MathUtils.clamp(connection.progress, 0.02, 1);
+    const visiblePoints = connection.curve.getPoints(140).slice(0, Math.floor(visibleProgress * 140));
+
+    if (visiblePoints.length < 2) return;
+
+    const visibleCurve = new THREE.CatmullRomCurve3(visiblePoints);
+    connection.mesh.geometry.dispose();
+    connection.mesh.geometry = new THREE.TubeGeometry(visibleCurve, visiblePoints.length, connectionLineThickness, 8, false);
+  }
+
+  function updateConnections(delta: number) {
+    for (let i = connections.length - 1; i >= 0; i--) {
+      const connection = connections[i];
+      const material = connection.mesh.material as THREE.MeshBasicMaterial;
+
+      if (connection.state === "drawing") {
+        connection.progress += connection.speed;
+        updateConnectionGeometry(connection);
+
+        if (fadeWhileDrawing) {
+          material.opacity = Math.max(0, 0.95 * (1 - connection.progress));
+
+          if (connection.progress >= 1) {
+            createRipple(connection.curve.getPoint(1));
+            resetConnection(i);
+          }
+        } else if (connection.progress >= 1) {
+          connection.progress = 1;
+          updateConnectionGeometry(connection);
+          createRipple(connection.curve.getPoint(1));
+          connection.state = "holding";
+          connection.holdTime = 0;
+        }
+      } else if (connection.state === "holding") {
+        connection.holdTime += delta;
+
+        if (connection.holdTime >= connectionHoldDuration) {
+          connection.state = "fading";
+          connection.fadeTime = 0;
+        }
+      } else {
+        connection.fadeTime += delta;
+        material.opacity = Math.max(
+          0,
+          0.95 * (1 - connection.fadeTime / connectionFadeDuration)
+        );
+
+        if (connection.fadeTime >= connectionFadeDuration) {
+          resetConnection(i);
+        }
+      }
+    }
+  }
+
+  function createRipple(position: THREE.Vector3) {
+    if (!rippleEnabled) return;
+
+    const normal = position.clone().normalize();
+
+    const geometry = new THREE.TorusGeometry(
+      rippleStartRadius,
+      rippleTubeThickness,
+      16,
+      64
+    );
+
+    const material = new THREE.MeshBasicMaterial({
+      color: rippleColor,
+      transparent: true,
+      opacity: 0.85,
+      depthWrite: false,
+    });
+
+    const ripple = new THREE.Mesh(geometry, material);
+
+    ripple.position.copy(position.clone().multiplyScalar(1.01));
+
+    const quaternion = new THREE.Quaternion();
+    quaternion.setFromUnitVectors(
+      new THREE.Vector3(0, 0, 1),
+      normal
+    );
+
+    ripple.quaternion.copy(quaternion);
+
+    globeGroup.add(ripple);
+
+    ripples.push({
+      mesh: ripple,
+      elapsed: 0,
+    });
+  }
+
+  function updateRipples(delta: number) {
+    for (let i = ripples.length - 1; i >= 0; i--) {
+      const ripple = ripples[i];
+      const material = ripple.mesh.material as THREE.MeshBasicMaterial;
+
+      ripple.elapsed += delta;
+
+      const progress = THREE.MathUtils.clamp(
+        ripple.elapsed / rippleDuration,
+        0,
+        1
+      );
+
+      const radius = THREE.MathUtils.lerp(
+        rippleStartRadius,
+        rippleMaxRadius,
+        progress
+      );
+
+      ripple.mesh.scale.setScalar(radius / rippleStartRadius);
+      material.opacity = 0.85 * (1 - progress);
+
+      if (progress >= 1) {
+        globeGroup.remove(ripple.mesh);
+        ripple.mesh.geometry.dispose();
+        material.dispose();
+        ripples.splice(i, 1);
+      }
+    }
+  }
+  function resize() {
+    const width = container.clientWidth;
+    const height = container.clientHeight;
+
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+
+    renderer.setSize(width * renderScale, height * renderScale, false);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  }
+
+  window.addEventListener("resize", resize);
+
+  let isDragging = false;
+  let previousPointerX = 0;
+  let previousPointerY = 0;
+  let velocityX = 0.002;
+  let velocityY = 0;
+
+  function onPointerDown(event: PointerEvent) {
+    isDragging = true;
+    previousPointerX = event.clientX;
+    previousPointerY = event.clientY;
+    canvas.setPointerCapture(event.pointerId);
+  }
+
+  function onPointerMove(event: PointerEvent) {
+    if (!isDragging) return;
+
+    const deltaX = event.clientX - previousPointerX;
+    const deltaY = event.clientY - previousPointerY;
+
+    velocityX = deltaX * 0.005;
+    velocityY = deltaY * 0.005;
+
+    globeGroup.rotation.y += velocityX;
+    globeGroup.rotation.x += velocityY;
+    globeGroup.rotation.x = THREE.MathUtils.clamp(
+      globeGroup.rotation.x,
+      -Math.PI / 2,
+      Math.PI / 2
+    );
+
+    previousPointerX = event.clientX;
+    previousPointerY = event.clientY;
+  }
+
+  function onPointerUp(event: PointerEvent) {
+    isDragging = false;
+    canvas.releasePointerCapture(event.pointerId);
+  }
+
+  canvas.addEventListener("pointerdown", onPointerDown);
+  canvas.addEventListener("pointermove", onPointerMove);
+  canvas.addEventListener("pointerup", onPointerUp);
+  canvas.addEventListener("pointerleave", () => {
+    isDragging = false;
+  });
+
+  const clock = new THREE.Clock();
+
+  function animate() {
+    requestAnimationFrame(animate);
+
+    const delta = clock.getDelta();
+
+    if (!isDragging) {
+      globeGroup.rotation.y += velocityX;
+      globeGroup.rotation.x += velocityY;
+      globeGroup.rotation.x = THREE.MathUtils.clamp(
+        globeGroup.rotation.x,
+        -Math.PI / 2,
+        Math.PI / 2
+      );
+
+      velocityX *= 0.96;
+      velocityY *= 0.96;
+
+      if (Math.abs(velocityX) < 0.002) velocityX = 0.002;
+      if (Math.abs(velocityY) < 0.0001) velocityY = 0;
+    }
+    updateConnections(delta);
+    updateRipples(delta);
+
+    renderer.render(scene, camera);
+  }
+
+  animate();
+</script>

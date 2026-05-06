@@ -1,0 +1,61 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+import Hero from "../../components/sections/Hero.astro";
+import About from "../../components/sections/About.astro";
+import Projects from "../../components/sections/Projects.astro";
+import Experience from "../../components/sections/Experience.astro";
+import Achievements from "../../components/sections/Achievements.astro";
+import Certificates from "../../components/sections/Certificates.astro";
+import Blogs from "../../components/sections/Blogs.astro";
+import Contact from "../../components/sections/Contact.astro";
+
+import about from "../../data/es/about.json";
+import projects from "../../data/es/projects.json";
+import experience from "../../data/es/experience.json";
+import achievements from "../../data/es/achievements.json";
+import certificates from "../../data/es/certificates.json";
+import blogs from "../../data/es/blogs.json";
+import contact from "../../data/es/contact.json";
+import footer from "../../data/es/footer.json";
+
+const seo = {
+    title: "Pablo Rojas | Desarrollador Backend",
+    description:
+        "Desarrollador Backend enfocado en construir soluciones escalables con Python, JavaScript, Data Engineering e IA aplicada.",
+    author: "Pablo Rojas",
+    keywords: [
+        "Pablo Rojas",
+        "Desarrollador Backend",
+        "Python",
+        "JavaScript",
+        "Portafolio",
+        "Ingeniería de Datos",
+        "IA"
+    ],
+    image: "https://pablo-rojas-dev.github.io/cover.jpg",
+    url: "https://pablo-rojas-dev.github.io"
+};
+---
+
+<BaseLayout
+    lang="es"
+    title={seo.title}
+    description={seo.description}
+    author={seo.author}
+    keywords={seo.keywords}
+    image={seo.image}
+    baseUrl={seo.url}
+    footer={footer}
+>
+
+    <Hero lang="es" />
+    <About data={about} />
+    <Projects data={projects} />
+    <Experience data={experience} />
+    <Achievements data={achievements} />
+    <Certificates data={certificates} />
+    <Blogs data={blogs} />
+    <Contact data={contact} />
+
+</BaseLayout>

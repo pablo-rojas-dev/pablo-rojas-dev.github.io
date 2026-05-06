@@ -1,0 +1,131 @@
+---
+import "../styles/global.css";
+import Navbar from "../components/ui/Navbar.astro";
+import Footer from "../components/sections/Footer.astro"
+import ScrollToTopButton from "../components/ui/ScrollToTopButton.astro";
+
+const {
+    lang = "en",
+    title,
+    description,
+    author = "Pablo Rojas",
+    keywords = [],
+    image = "https://pablo-rojas-dev.github.io/cover.jpg",
+    baseUrl = "https://pablo-rojas-dev.github.io",
+    footer,
+} = Astro.props;
+
+const isSpanish = lang === "es";
+
+const canonicalUrl = isSpanish ? `${baseUrl}/es` : baseUrl;
+const englishUrl = baseUrl;
+const spanishUrl = `${baseUrl}/es`;
+const locale = isSpanish ? "es_MX" : "en_US";
+
+const showMoreText = {
+    more: isSpanish ? "Ver más" : "Read More",
+    less: isSpanish ? "Ver menos" : "Read less",
+};
+---
+
+<!doctype html>
+<html lang={lang}>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+
+        <!-- SEO -->
+        <title>{title}</title>
+        <meta name="title" content={title} />
+        <meta name="description" content={description} />
+        <meta name="author" content={author} />
+        <meta name="keywords" content={keywords.join(", ")} />
+        <meta name="robots" content="index, follow, max-image-preview:large" />
+
+        <!-- Canonical -->
+        <link rel="canonical" href={canonicalUrl} />
+        <link rel="alternate" hreflang="en" href={englishUrl} />
+        <link rel="alternate" hreflang="es" href={spanishUrl} />
+        <link rel="alternate" hreflang="x-default" href={englishUrl} />
+
+        <!-- Open Graph -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={image} />
+        <meta property="og:site_name" content="Pablo Rojas Portfolio" />
+        <meta property="og:locale" content={locale} />
+
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content={canonicalUrl} />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={image} />
+
+        <!-- Theme -->
+        <meta name="theme-color" content="#000000" />
+
+        <!-- Icons -->
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    </head>
+
+    <body
+        data-show-more-text-more={showMoreText.more}
+        data-show-more-text-less={showMoreText.less}
+    >
+        <Navbar />
+
+        <slot />
+
+        <ScrollToTopButton />
+
+        <Footer data={footer} />
+
+        <!-- Show More Script -->
+        <script>
+            document.querySelectorAll<HTMLElement>("[data-show-more]").forEach((container) => {
+                const visibleCount = Number(container.dataset.visible) || 4;
+                const cards = container.querySelectorAll<HTMLElement>(".show-more-card");
+                const button = container.nextElementSibling as HTMLButtonElement | null;
+
+                if (!button || !button.classList.contains("show-more-btn")) return;
+
+                if (cards.length <= visibleCount) {
+                    button.classList.add("hidden");
+                    return;
+                }
+
+                cards.forEach((card, index) => {
+                    if (index >= visibleCount) {
+                        card.classList.add("hidden");
+                    }
+                });
+
+                const moreText = document.body.dataset.showMoreTextMore || "Read More";
+                const lessText = document.body.dataset.showMoreTextLess || "Read less";
+
+                button.textContent = moreText;
+
+                button.addEventListener("click", () => {
+                    const isExpanded = button.dataset.expanded === "true";
+
+                    cards.forEach((card, index) => {
+                        if (index >= visibleCount) {
+                        card.classList.toggle("hidden", isExpanded);
+                        }
+                    });
+
+                    button.dataset.expanded = String(!isExpanded);
+
+                    button.textContent = isExpanded ? moreText : lessText;
+                });
+            });
+        </script>
+
+        <script src="/js/copy-email.js" defer></script>
+    </body>
+</html>

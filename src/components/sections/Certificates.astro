@@ -1,0 +1,71 @@
+---
+import { ArrowUpRight } from "@lucide/astro";
+import ShowMoreButton from "../ui/ShowMoreButton.astro";
+import type { CertificatesData } from "../../types";
+
+const { data } = Astro.props as {
+  data: CertificatesData;
+};
+---
+
+<section id="certificates" class="w-full py-16">
+  <h2 class="mt-12 mb-10 text-center text-5xl font-bold md:text-6xl">
+    {data.title}
+  </h2>
+
+  <div class="show-more-container mx-auto grid max-w-6xl grid-cols-1 gap-6 px-4 sm:grid-cols-2 lg:grid-cols-3"
+    data-show-more
+    data-visible="6">
+    {
+      data.items.map((certificate) => (
+        <article
+          class="show-more-card certificate-card group cursor-pointer rounded-xl p-2 transition-all duration-300"
+          data-url={certificate.certificateUrl}
+        >
+          <img
+            src={certificate.image}
+            alt={certificate.title}
+            class="mb-3 h-40 w-full rounded-sm border border-black object-cover"
+            loading="lazy"
+          />
+
+          <div class="text-center">
+            <div class="inline-flex items-center justify-center gap-1 font-bold">
+              <h3>{certificate.title}</h3>
+              <ArrowUpRight class="arrow h-4 w-4 transition-transform duration-300" />
+            </div>
+
+            <p class="mt-1 text-sm font-medium">
+              {certificate.date}
+            </p>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+
+  <ShowMoreButton />
+  
+</section>
+
+<script>
+  document.querySelectorAll<HTMLElement>(".certificate-card").forEach((card) => {
+    card.addEventListener("click", () => {
+      const url = card.dataset.url;
+
+      if (url) {
+        window.open(url, "_blank");
+      }
+    });
+  });
+</script>
+
+<style>
+  .certificate-card:hover {
+    transform: scale(1.04);
+  }
+
+  .certificate-card:hover .arrow {
+    transform: translateY(-3px) translateX(3px);
+  }
+</style>

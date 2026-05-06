@@ -1,0 +1,41 @@
+{
+    "title": "Certificates",
+    "items": [
+        {
+            "image": "/certificates/certificate-1.png",
+            "certificateUrl": "https://google.com",
+            "title": "Certificate 1",
+            "date": "2024"
+        },
+        {
+            "image": "/certificates/certificate-2.png",
+            "certificateUrl": "https://google.com",
+            "title": "Certificate 2",
+            "date": "2025"
+        },
+        {
+            "image": "/certificates/certificate-3.png",
+            "certificateUrl": "https://google.com",
+            "title": "Certificate 3",
+            "date": "2026"
+        },
+        {
+            "image": "/certificates/certificate-1.png",
+            "certificateUrl": "https://google.com",
+            "title": "Certificate 1",
+            "date": "2024"
+        },
+        {
+            "image": "/certificates/certificate-2.png",
+            "certificateUrl": "https://google.com",
+            "title": "Certificate 2",
+            "date": "2025"
+        },
+        {
+            "image": "/certificates/certificate-3.png",
+            "certificateUrl": "https://google.com",
+            "title": "Certificate 3",
+            "date": "2026"
+        }
+    ]
+}

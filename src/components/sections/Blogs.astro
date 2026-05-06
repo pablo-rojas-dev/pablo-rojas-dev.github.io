@@ -1,0 +1,75 @@
+---
+import { ArrowUpRight } from "@lucide/astro";
+import ShowMoreButton from "../ui/ShowMoreButton.astro";
+import type {BlogsData} from "../../types"
+
+const { data } = Astro.props as {
+  data: BlogsData;
+};
+---
+
+<section id="blogs" class="w-full py-16">
+  <h2 class="mt-12 mb-10 text-center text-5xl font-bold md:text-6xl">
+    {data.title}
+  </h2>
+
+  <div class="show-more-container mx-auto grid max-w-6xl grid-cols-1 gap-8 px-4 md:grid-cols-2"
+    data-show-more
+    data-visible="4">
+    {
+      data.items.map((blog) => (
+        <article
+          class="show-more-card blog-card group mx-auto grid w-full sm:w-[70%] md:w-full max-w-2xl cursor-pointer gap-4 rounded-2xl p-5 text-center transition-all duration-300 sm:grid-cols-[150px_1fr] sm:text-left"
+          data-url={blog.blogUrl}
+        >
+          <img
+            src={blog.cover}
+            alt={blog.title}
+            class="h-24 w-full rounded-lg border border-black object-cover"
+            loading="lazy"
+          />
+
+          <div class="flex flex-col items-center justify-center sm:items-start">
+            <div class="mb-4 inline-flex items-start gap-1 font-bold leading-tight">
+              <h3>{blog.title}</h3>
+              <ArrowUpRight class="arrow mt-1 h-4 w-4 shrink-0 transition-transform duration-300" />
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-2 sm:justify-start">
+              {blog.tags.map((tag) => (
+                <span class="rounded-full border border-black px-4 py-1 text-xs font-semibold">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+
+  <ShowMoreButton />
+</section>
+
+<script>
+  document.querySelectorAll<HTMLElement>(".blog-card").forEach((card) => {
+    card.addEventListener("click", () => {
+      const url = card.dataset.url;
+
+      if (url) {
+        window.open(url, "_blank");
+      }
+    });
+  });
+</script>
+
+<style>
+  .blog-card:hover {
+    transform: scale(1.04);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  }
+
+  .blog-card:hover .arrow {
+    transform: translateY(-3px) translateX(3px);
+  }
+</style>

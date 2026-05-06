@@ -1,0 +1,19 @@
+---
+const { data } = Astro.props;
+---
+
+<footer class="w-full bg-[#0a0a0a] px-4 py-24 text-white">
+  <div class="mx-auto flex max-w-4xl flex-col items-center text-center">
+    <h2 class="mb-8 text-4xl font-bold md:text-5xl">
+      {data.title}
+    </h2>
+
+    <p class="max-w-3xl text-lg leading-relaxed text-white">
+      {data.quote}
+    </p>
+
+    <p class="mt-6 text-xl italic text-white">
+      {data.author}
+    </p>
+  </div>
+</footer>

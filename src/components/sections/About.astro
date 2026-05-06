@@ -1,0 +1,53 @@
+---
+import World from "./World.astro";
+import type { AboutData } from "../../types"
+
+const { data } = Astro.props as {
+  data: AboutData;
+};
+---
+
+<section
+  id="about"
+  class="min-h-dvh w-full overflow-visible flex items-center px-6 py-10"
+>
+  <div class="mx-auto grid h-full w-full max-w-7xl grid-cols-1 items-center gap-10 lg:grid-cols-2">
+    <div class="space-y-6 text-center lg:text-left">
+      <h2 class="mt-12 text-4xl font-bold tracking-tight text-black md:text-6xl">
+        {data.title}
+      </h2>
+
+      <button
+        type="button"
+        class="scroll-to-contact inline-block rounded-full bg-lime-400 px-6 py-3 font-bold text-black transition hover:scale-105"
+      >
+        {data.availableButton}
+      </button>
+
+      <div class="space-y-5 text-center text-lg leading-relaxed md:text-xl lg:text-left">
+        {data.paragraphs.map((paragraph) => (
+          <p set:html={paragraph} />
+        ))}
+      </div>
+    </div>
+
+    <div class="flex h-full flex-col items-center justify-center gap-4 overflow-visible">
+      <div class="relative aspect-square w-full max-w-[460px] overflow-visible">
+        <World />
+      </div>
+
+      <p class="text-center text-xl uppercase font-bold text-black md:text-2xl">
+        {data.highlight}
+      </p>
+    </div>
+  </div>
+
+  <script>
+    document.querySelector(".scroll-to-contact")?.addEventListener("click", () => {
+      document.getElementById("contact")?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    });
+</script>
+</section>

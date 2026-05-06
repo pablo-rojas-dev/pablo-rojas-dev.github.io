@@ -1,0 +1,59 @@
+{
+  "title": "Logros",
+  "items": [
+        {
+            "image": "/achievements/achievement-1.png",
+            "title": "Primer lugar en reto de innovación",
+            "organization": "Tech Innovation Lab",
+            "organizationUrl": "https://google.com",
+            "date": "2025",
+            "description": "Reconocimiento por desarrollar una solución innovadora enfocada en tecnología, creatividad e impacto.",
+            "tags": ["Innovación", "Tecnología", "Competencia"]
+        },
+        {
+            "image": "/achievements/achievement-2.png",
+            "title": "Primer lugar en reto de innovación",
+            "organization": "Tech Innovation Lab",
+            "organizationUrl": "https://google.com",
+            "date": "2025",
+            "description": "Reconocimiento por desarrollar una solución innovadora enfocada en tecnología, creatividad e impacto.",
+            "tags": ["Innovación", "Tecnología", "Competencia"]
+        },
+        {
+            "image": "/achievements/achievement-3.png",
+            "title": "Primer lugar en reto de innovación",
+            "organization": "Tech Innovation Lab",
+            "organizationUrl": "https://google.com",
+            "date": "2025",
+            "description": "Reconocimiento por desarrollar una solución innovadora enfocada en tecnología, creatividad e impacto.",
+            "tags": ["Innovación", "Tecnología", "Competencia"]
+        },
+        {
+            "image": "/achievements/achievement-1.png",
+            "title": "Primer lugar en reto de innovación",
+            "organization": "Tech Innovation Lab",
+            "organizationUrl": "https://google.com",
+            "date": "2025",
+            "description": "Reconocimiento por desarrollar una solución innovadora enfocada en tecnología, creatividad e impacto.",
+            "tags": ["Innovación", "Tecnología", "Competencia"]
+        },
+        {
+            "image": "/achievements/achievement-2.png",
+            "title": "Primer lugar en reto de innovación",
+            "organization": "Tech Innovation Lab",
+            "organizationUrl": "https://google.com",
+            "date": "2025",
+            "description": "Reconocimiento por desarrollar una solución innovadora enfocada en tecnología, creatividad e impacto.",
+            "tags": ["Innovación", "Tecnología", "Competencia"]
+        },
+        {
+            "image": "/achievements/achievement-3.png",
+            "title": "Primer lugar en reto de innovación",
+            "organization": "Tech Innovation Lab",
+            "organizationUrl": "https://google.com",
+            "date": "2025",
+            "description": "Reconocimiento por desarrollar una solución innovadora enfocada en tecnología, creatividad e impacto.",
+            "tags": ["Innovación", "Tecnología", "Competencia"]
+        }
+    ]
+}

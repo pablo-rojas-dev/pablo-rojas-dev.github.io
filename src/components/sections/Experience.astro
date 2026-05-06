@@ -1,0 +1,77 @@
+---
+import { ArrowUpRight } from "@lucide/astro";
+import ShowMoreButton from "../ui/ShowMoreButton.astro";
+import type { ExperienceData } from "../../types";
+
+const { data } = Astro.props as {
+  data: ExperienceData;
+};
+---
+
+<section id="experience" class="w-full py-16">
+  <h2 class="mt-12 mb-12 text-center text-5xl font-bold md:text-6xl">
+    {data.title}
+  </h2>
+
+  <div class="show-more-container mx-auto flex max-w-4xl flex-col gap-8 px-4"
+    data-show-more
+    data-visible="2">
+    {
+      data.items.map((experience) => (
+        <article
+          class="show-more-card experience-card group mx-auto grid w-full sm:w-[75%] md:w-full max-w-4xl cursor-pointer gap-4 rounded-2xl p-6 text-center transition-all duration-300 md:grid-cols-[220px_1fr] md:text-left"
+          data-url={experience.jobUrl}
+        >
+          <p class="text-sm font-semibold text-black">
+            {experience.dateRange}
+          </p>
+
+          <div class="flex flex-col items-center md:items-start">
+            <div class="mb-3 inline-flex items-center gap-2 font-bold">
+              <h3>{experience.title}</h3>
+              <ArrowUpRight class="arrow h-4 w-4 transition-transform duration-300" />
+            </div>
+
+            <p class="mb-4 max-w-xl text-sm leading-relaxed text-black">
+              {experience.description}
+            </p>
+
+            <div class="flex flex-wrap justify-center gap-2 md:justify-start">
+              {experience.tags.map((tag) => (
+                <span class="rounded-full border border-black px-3 py-1 text-xs font-semibold">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+
+  <ShowMoreButton />
+  
+</section>
+
+<script>
+  document.querySelectorAll<HTMLElement>(".experience-card").forEach((card) => {
+    card.addEventListener("click", () => {
+      const url = card.dataset.url;
+
+      if (url) {
+        window.open(url, "_blank");
+      }
+    });
+  });
+</script>
+
+<style>
+  .experience-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  }
+
+  .experience-card:hover .arrow {
+    transform: translateY(-4px) translateX(4px);
+  }
+</style>

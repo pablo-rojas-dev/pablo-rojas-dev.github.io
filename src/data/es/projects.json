@@ -1,0 +1,53 @@
+{
+    "title": "Proyectos",
+    "items": [
+        {
+            "title": "Proyecto 1",
+            "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus.",
+            "images": [
+                "/projects/project-1/img-1.png", 
+                "/projects/project-1/img-2.png",
+                "/projects/project-1/img-3.png"
+            ],
+            "tags": [
+                "Springboot", 
+                "React", 
+                "PostgreSQL"
+            ],
+            "demoUrl": "https://google.com",
+            "githubUrl": "https://github.com/"
+        },
+        {
+            "title": "Proyecto 2",
+            "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus.",
+            "images": [
+                "/projects/project-1/img-1.png", 
+                "/projects/project-1/img-2.png",
+                "/projects/project-1/img-3.png"
+            ],
+            "tags": [
+                "Springboot", 
+                "React", 
+                "PostgreSQL"
+            ],
+            "demoUrl": "https://google.com",
+            "githubUrl": "https://github.com/"
+        },
+        {
+            "title": "Proyecto 3",
+            "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus.",
+            "images": [
+                "/projects/project-1/img-1.png", 
+                "/projects/project-1/img-2.png",
+                "/projects/project-1/img-3.png"
+            ],
+            "tags": [
+                "Springboot", 
+                "React", 
+                "PostgreSQL"
+            ],
+            "demoUrl": "https://google.com",
+            "githubUrl": "https://github.com/"
+        }
+    ]
+}

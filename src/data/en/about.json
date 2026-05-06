@@ -1,0 +1,10 @@
+{
+    "title": "About Me",
+    "availableButton": "Available for work",
+    "paragraphs": [
+        "<b>Backend developer</b> with expertise in data engineering.",
+        "<b>I specialize</b> in creating value through architectures that manage a company's most important asset: its data.",
+        "<b>I work</b> with monoliths, microservices, SQL, NoSQL, cloud, or on-premises environments, always prioritizing the best solution based on business needs."
+    ],
+    "highlight": "Data connects the world"
+}
