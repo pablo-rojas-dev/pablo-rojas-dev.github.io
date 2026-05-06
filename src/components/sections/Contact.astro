@@ -11,12 +11,15 @@ const mail = "pablorojas.job@gmail.com"
 const mailHref = `mailto:${mail}?subject=${encodeURIComponent(
   data.subject
 )}&body=${encodeURIComponent(data.body)}`;
+
+const asset = (path: string) =>
+  `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`;
 ---
 
 <section id="contact" class="relative h-dvh w-full py-16">
   <div class="mx-auto flex w-[70%] max-w-4xl flex-col items-center px-4 text-center md:w-full">
     <img
-      src={`${import.meta.env.BASE_URL}${data.gif.replace(/^\/+/, "")}`}
+      src={asset(data.gif)}
       alt={data.title}
       class="mb-6 h-40 w-40 object-contain"
       loading="lazy"

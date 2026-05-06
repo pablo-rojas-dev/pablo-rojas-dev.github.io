@@ -4,7 +4,7 @@ import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   site: 'https://pablo-rojas-dev.github.io',
-  base: '/my-web',
+  base: '/my-web/',
   server: {
     host: true,
     port: 4321

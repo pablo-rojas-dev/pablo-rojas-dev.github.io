@@ -5,6 +5,10 @@ import type { AchievementsData } from "../../types";
 const { data } = Astro.props as {
   data: AchievementsData;
 };
+
+const asset = (path: string) =>
+  `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`;
+
 ---
 
 <section id="achievements" class="w-full py-16">
@@ -26,7 +30,7 @@ const { data } = Astro.props as {
             >
               <div class="flex h-full flex-col items-center rounded-2xl border border-black/10 p-4 text-center shadow-sm">
                 <img
-                  src={`${import.meta.env.BASE_URL}${achievement.image.replace(/^\/+/, "")}`}
+                  src={asset(achievement.image)}
                   alt={achievement.title}
                   class="mb-4 h-48 w-full rounded-xl object-cover"
                   loading="lazy"
