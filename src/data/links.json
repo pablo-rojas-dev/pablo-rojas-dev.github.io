@@ -1,0 +1,34 @@
+{
+  "title": "Pablo Rojas",
+  "subtitle": "Backend Developer",
+  "items": [
+    {
+      "label": "My Web",
+      "href": "/",
+      "icon": "globe"
+    },
+    {
+      "label": "GitHub",
+      "href": "https://github.com/pablo-rojas-dev",
+      "icon": "github",
+      "external": true
+    },
+    {
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/pablo-rojas-dev",
+      "icon": "linkedin",
+      "external": true
+    },
+    {
+      "label": "Mail",
+      "href": "mailto:pablorojas.job@gmail.com",
+      "icon": "email"
+    },
+    {
+      "label": "CV",
+      "href": "/docs/cv-en.pdf",
+      "icon": "cv",
+      "external": true
+    }
+  ]
+}

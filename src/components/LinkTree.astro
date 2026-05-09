@@ -1,0 +1,69 @@
+---
+import { Globe, AtSign } from "@lucide/astro";
+import World from "./sections/World.astro";
+
+import links from "../data/links.json";
+import type { LinkTreeData } from "../types";
+
+const data = links as LinkTreeData;
+
+const BASE_URL = import.meta.env.BASE_URL;
+
+const githubIcon = `${BASE_URL}icons/github.svg`;
+const linkedinIcon = `${BASE_URL}icons/linkedin.svg`;
+---
+
+<section class="relative min-h-dvh overflow-hidden bg-white text-black">
+  <div class="absolute inset-0 opacity-20">
+    <World />
+  </div>
+
+  <div class="relative z-10 flex min-h-dvh items-center justify-center px-6 py-12">
+    <div class="w-full max-w-md text-center">
+
+      <h1 class="text-5xl font-bold tracking-tight">
+        {data.title}
+      </h1>
+
+      <p class="mt-3 text-sm font-semibold uppercase tracking-[0.35em]">
+        {data.subtitle}
+      </p>
+
+      <div class="mt-10 flex flex-col gap-4">
+        {
+          data.items.map((item) => (
+            <a
+              href={item.href}
+              target={item.external ? "_blank" : undefined}
+              rel={item.external ? "noopener noreferrer" : undefined}
+              class="flex w-full items-center justify-center gap-3 rounded-full bg-lime-400 px-6 py-4 font-bold text-black transition-transform duration-300 hover:scale-105"
+            >
+              {item.icon === "globe" && (
+                <Globe size={22} stroke-width={2.5} />
+              )}
+
+              {item.icon === "github" && (
+                <img src={githubIcon} alt="GitHub" class="h-6 w-6" />
+              )}
+
+              {item.icon === "linkedin" && (
+                <img src={linkedinIcon} alt="LinkedIn" class="h-6 w-6" />
+              )}
+
+              {item.icon === "email" && (
+                <AtSign size={22} stroke-width={2.5} />
+              )}
+
+              {item.icon === "cv" && (
+                <span class="text-sm font-black uppercase">CV</span>
+              )}
+
+              <span>{item.label}</span>
+            </a>
+          ))
+        }
+      </div>
+
+    </div>
+  </div>
+</section>
