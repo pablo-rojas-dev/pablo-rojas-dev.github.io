@@ -1,5 +1,30 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
 import LinkTree from "../components/LinkTree.astro";
+
+const seo = {
+  title: "Pablo Rojas | Linktree",
+  description: "Pablo Rojas - Linktree",
+  author: "Pablo Rojas",
+  keywords: [
+    "Pablo Rojas",
+    "Linktree",
+    "Backend Developer",
+    "Portfolio",
+    "GitHub",
+    "LinkedIn",
+    "CV"
+  ]
+};
 ---
 
-<LinkTree />
+<BaseLayout
+  lang="en"
+  title={seo.title}
+  description={seo.description}
+  author={seo.author}
+  keywords={seo.keywords}
+  showFooter={false}
+>
+  <LinkTree />
+</BaseLayout>

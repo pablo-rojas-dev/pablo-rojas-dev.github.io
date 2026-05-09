@@ -20,13 +20,19 @@
       "external": true
     },
     {
-      "label": "Mail",
+      "label": "Mail contact",
       "href": "mailto:pablorojas.job@gmail.com",
       "icon": "email"
     },
     {
-      "label": "CV",
+      "label": "English CV",
       "href": "/docs/cv-en.pdf",
+      "icon": "cv",
+      "external": true
+    },
+    {
+      "label": "Español CV",
+      "href": "/docs/cv-es.pdf",
       "icon": "cv",
       "external": true
     }

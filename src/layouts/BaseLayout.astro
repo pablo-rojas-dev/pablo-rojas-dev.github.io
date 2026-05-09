@@ -13,6 +13,7 @@ const {
     image = "https://pablo-rojas-dev.github.io/cover.jpg?v=3",
     baseUrl = "https://pablo-rojas-dev.github.io",
     footer,
+    showFooter = true,
 } = Astro.props;
 
 const isSpanish = lang === "es";
@@ -97,7 +98,7 @@ const showMoreText = {
 
         <ScrollToTopButton />
 
-        <Footer data={footer} />
+        {showFooter && <Footer data={footer} />}
 
         <!-- Show More Script -->
         <script>
