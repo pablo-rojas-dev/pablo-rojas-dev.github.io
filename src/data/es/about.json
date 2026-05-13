@@ -2,8 +2,10 @@
   "title": "Sobre mí",
   "availableButton": "Disponible para trabajar",
   "paragraphs": [
-    "<b>Estudiante de Licenciatura en Informática próximo a egresar<b>, actualmente en desarrollo de tesis con finalización estimada para agosto de 2027. Cuento con experiencia en el desarrollo de aplicaciones web y proyectos tecnológicos multidisciplinarios, trabajando con tecnologías como React, Express, Spring Boot, PostgreSQL, Astro y TailwindCSS. Participé en concursos de desarrollo de aplicaciones web y colaboré como becario de investigación en proyectos relacionados con inteligencia artificial generativa y educación, donde trabajé en la configuración de GPTs personalizados y Gemas de Gemini, además de realizar curaduría y procesamiento de documentos mediante OCR, estructuración de metadatos e indexación de información.",
-    "Busco oportunidades que me permitan adquirir experiencia profesional mientras concluyo mis estudios."
-  ],
+      "<b>Soy</b> estudiante de Licenciatura en Informática y desarrollador web apasionado por crear experiencias digitales que combinan tecnología, creatividad e inteligencia artificial.",
+      "<b>Trabajo principalmente con</b> React, Spring Boot, PostgreSQL, Astro y TailwindCSS, desarrollando aplicaciones web y explorando arquitecturas modernas de frontend y backend. Me interesa especialmente la intersección entre el desarrollo de software, la IA generativa y la creatividad.",
+      "<b>Actualmente</b>, estoy enfocado en seguir mejorando mis habilidades a través de proyectos personales, investigación y colaboración multidisciplinaria mientras finalizo mi tesis de grado."
+
+    ],
   "highlight": "Los datos conectan al mundo"
 }
