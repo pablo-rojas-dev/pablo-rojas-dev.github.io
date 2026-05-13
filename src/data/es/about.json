@@ -2,9 +2,8 @@
   "title": "Sobre mí",
   "availableButton": "Disponible para trabajar",
   "paragraphs": [
-    "<b>Backend developer</b> con habilidades en Data Engineering.",
-    "<b>Me especializo</b> en crear valor mediante arquitecturas que gestionan el activo más importante de las empresas: sus datos.",
-    "<b>Trabajo</b> con monolitos, microservicios, SQL, NoSQL, nube o entornos locales, priorizando siempre la mejor solución según las necesidades del negocio."
+    "<b>Estudiante de Licenciatura en Informática próximo a egresar<b>, actualmente en desarrollo de tesis con finalización estimada para agosto de 2027. Cuento con experiencia en el desarrollo de aplicaciones web y proyectos tecnológicos multidisciplinarios, trabajando con tecnologías como React, Express, Spring Boot, PostgreSQL, Astro y TailwindCSS. Participé en concursos de desarrollo de aplicaciones web y colaboré como becario de investigación en proyectos relacionados con inteligencia artificial generativa y educación, donde trabajé en la configuración de GPTs personalizados y Gemas de Gemini, además de realizar curaduría y procesamiento de documentos mediante OCR, estructuración de metadatos e indexación de información.",
+    "Busco oportunidades que me permitan adquirir experiencia profesional mientras concluyo mis estudios."
   ],
   "highlight": "Los datos conectan al mundo"
 }

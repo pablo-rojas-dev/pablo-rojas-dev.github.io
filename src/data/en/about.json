@@ -2,9 +2,8 @@
     "title": "About Me",
     "availableButton": "Available for work",
     "paragraphs": [
-        "<b>Backend developer</b> with expertise in data engineering.",
-        "<b>I specialize</b> in creating value through architectures that manage a company's most important asset: its data.",
-        "<b>I work</b> with monoliths, microservices, SQL, NoSQL, cloud, or on-premises environments, always prioritizing the best solution based on business needs."
+      "<b>Computer Science undergraduate student nearing graduation<b>, currently developing my thesis with an estimated completion date of August 2027. I have experience in web application development and multidisciplinary technology projects, working with technologies such as React, Express, Spring Boot, PostgreSQL, Astro, and TailwindCSS. I participated in web application development competitions and collaborated as a research intern on projects related to generative artificial intelligence and education, where I worked on configuring custom GPTs and Gemini Gems, as well as curating and processing documents through OCR, metadata structuring, and information indexing.",
+      "I am seeking opportunities that allow me to gain professional experience while completing my studies."
     ],
     "highlight": "Data connects the world"
 }
