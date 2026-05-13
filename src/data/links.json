@@ -26,13 +26,13 @@
     },
     {
       "label": "English CV",
-      "href": "/docs/cv-en.pdf",
+      "href": "/docs/cv-pablo-rojas-en.pdf",
       "icon": "cv",
       "external": true
     },
     {
       "label": "Español CV",
-      "href": "/docs/cv-es.pdf",
+      "href": "/docs/cv-pablo-rojas-es.pdf",
       "icon": "cv",
       "external": true
     }
