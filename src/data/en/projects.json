@@ -2,52 +2,74 @@
     "title": "Projects",
     "items": [
         {
-            "title": "Project 1",
-            "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus.",
+            "title": "IDK FCA Auditorios",
+            "description": "A web application developed to manage the logistics involved in organizing academic events: auditoriums, speakers, inventory, awards, etc.",
             "images": [
-                "/projects/project-1/img-1.png", 
-                "/projects/project-1/img-2.png",
-                "/projects/project-1/img-3.png"
+                "/projects/idk-fca-auditorios/img-1.png",
+                "/projects/idk-fca-auditorios/img-2.png",
+                "/projects/idk-fca-auditorios/img-3.png",
+                "/projects/idk-fca-auditorios/img-4.png",
+                "/projects/idk-fca-auditorios/img-5.png",
+                "/projects/idk-fca-auditorios/img-6.png",
+                "/projects/idk-fca-auditorios/img-7.png"
             ],
             "tags": [
                 "Springboot", 
                 "React", 
                 "PostgreSQL"
             ],
-            "demoUrl": "https://google.com",
-            "githubUrl": "https://github.com/"
+            "demoUrl": "https://github.com/pablo-rojas-dev/idk-fca-auditorios/tree/master",
+            "githubUrl": "https://github.com/pablo-rojas-dev/idk-fca-auditorios"
         },
         {
-            "title": "Project 2",
-            "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus.",
+            "title": "Aquasense",
+            "description": "Web dashboard for visualizing data from multiple humidity and temperature sensors deployed in the field.",
             "images": [
-                "/projects/project-1/img-1.png", 
-                "/projects/project-1/img-2.png",
-                "/projects/project-1/img-3.png"
+                "/projects/aquasense/img-1.png",
+                "/projects/aquasense/img-2.png",
+                "/projects/aquasense/img-3.png",
+                "/projects/aquasense/img-4.png",
+                "/projects/aquasense/img-5.png"
             ],
             "tags": [
-                "Springboot", 
                 "React", 
-                "PostgreSQL"
+                "Express", 
+                "C",
+                "ESP32"
             ],
-            "demoUrl": "https://google.com",
-            "githubUrl": "https://github.com/"
+            "demoUrl": "https://github.com/pablo-rojas-dev/aquasense",
+            "githubUrl": "https://github.com/pablo-rojas-dev/aquasense"
         },
         {
-            "title": "Project 3",
-            "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus.",
+            "title": "CV Translator",
+            "description": " Script to automatically translate your resume from Spanish ⇄ English.",
             "images": [
-                "/projects/project-1/img-1.png", 
-                "/projects/project-1/img-2.png",
-                "/projects/project-1/img-3.png"
+                "/projects/cv-translator/img-1.png",
+                "/projects/cv-translator/img-2.png"
             ],
             "tags": [
-                "Springboot", 
-                "React", 
-                "PostgreSQL"
+                "JS", 
+                "Typst",
+                "Huggin Face - NLB200"
             ],
-            "demoUrl": "https://google.com",
-            "githubUrl": "https://github.com/"
+            "demoUrl": "https://github.com/pablo-rojas-dev/cv-translator",
+            "githubUrl": "https://github.com/pablo-rojas-dev/cv-translator"
+        },
+        {
+            "title": "Inventario Mix-up",
+            "description": "Documentation and database design for tracking products of a music retail company. Includes problem definition, requirements analysis, conceptual model, logical model, normalization, and data dictionary.",
+            "images": [
+                "/projects/inventario-mix-up/img-1.png",
+                "/projects/inventario-mix-up/img-2.png",
+                "/projects/inventario-mix-up/img-3.png",
+                "/projects/inventario-mix-up/img-4.png"
+            ],
+            "tags": [
+                "SQL", 
+                "Draw.io"
+            ],
+            "demoUrl": "https://github.com/pablo-rojas-dev/inventario-mix-up",
+            "githubUrl": "https://github.com/pablo-rojas-dev/inventario-mix-up"
         }
     ]
 }
