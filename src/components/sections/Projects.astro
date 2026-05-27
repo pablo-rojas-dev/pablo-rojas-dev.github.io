@@ -1,11 +1,11 @@
 ---
 import { ArrowUpRight, ChevronLeft, ChevronRight } from "@lucide/astro";
 import ShowMoreButton from "../ui/ShowMoreButton.astro";
-import type { ProjectsData } from "../../types"
+import type { ProjectsData } from "../../types";
 
 const { data } = Astro.props as {
   data: ProjectsData;
-}
+};
 
 const asset = (path: string) =>
   `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`;
@@ -16,22 +16,24 @@ const asset = (path: string) =>
     {data.title}
   </h2>
 
-  <div class="show-more-container mx-auto flex max-w-6xl flex-col gap-12 px-4"
+  <div
+    class="show-more-container mx-auto flex max-w-6xl flex-col gap-12 px-4"
     data-show-more
-    data-visible="2">
+    data-visible="2"
+  >
     {
       data.items.map((project) => (
         <article
-          class="show-more-card project-card group mx-auto grid w-full sm:w-[75%] md:w-full max-w-5xl cursor-pointer gap-8 rounded-2xl p-6 text-center md:grid-cols-2 md:items-center md:text-left"
+          class="show-more-card project-card group mx-auto grid w-full max-w-5xl cursor-pointer gap-8 rounded-2xl p-6 text-center sm:w-[75%] md:w-full md:grid-cols-2 md:items-center md:text-left"
           data-url={project.demoUrl}
         >
           <div class="relative overflow-hidden rounded-xl">
-            <div class="carousel flex overflow-hidden scroll-smooth">
+            <div class="carousel flex overflow-x-auto scroll-smooth snap-x snap-mandatory">
               {project.images.map((image, index) => (
                 <img
                   src={asset(image)}
                   alt={`${project.title} imagen ${index + 1}`}
-                  class="carousel-item h-64 w-full flex-shrink-0 object-cover md:h-72"
+                  class="carousel-item h-64 w-full flex-shrink-0 snap-center object-cover md:h-72"
                   loading="lazy"
                 />
               ))}
@@ -48,7 +50,7 @@ const asset = (path: string) =>
               type="button"
               class="carousel-next absolute right-3 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/80 px-3 py-2 text-2xl font-bold shadow transition hover:bg-lime-400"
             >
-              <ChevronRight/>
+              <ChevronRight />
             </button>
 
             <div class="carousel-dots absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 gap-2">
@@ -95,9 +97,8 @@ const asset = (path: string) =>
       ))
     }
   </div>
-  
+
   <ShowMoreButton />
-  
 </section>
 
 <script>
@@ -105,6 +106,7 @@ const asset = (path: string) =>
   document.querySelectorAll<HTMLElement>(".project-card").forEach((card) => {
     card.addEventListener("click", () => {
       const url = card.dataset.url;
+
       if (url) {
         window.open(url, "_blank");
       }
@@ -112,7 +114,10 @@ const asset = (path: string) =>
   });
 
   /* EVITAR QUE BOTONES INTERNOS DISPARAN CARD */
-  document.querySelectorAll<HTMLElement>(".stop-click, .carousel-prev, .carousel-next, .carousel-dot")
+  document
+    .querySelectorAll<HTMLElement>(
+      ".stop-click, .carousel-prev, .carousel-next, .carousel-dot"
+    )
     .forEach((element) => {
       element.addEventListener("click", (e) => e.stopPropagation());
     });
@@ -120,10 +125,10 @@ const asset = (path: string) =>
   /* CAROUSEL */
   document.querySelectorAll<HTMLElement>(".carousel").forEach((carousel) => {
     const wrapper = carousel.parentElement;
-    const items = carousel.querySelectorAll(".carousel-item");
-    const prevBtn = wrapper?.querySelector(".carousel-prev");
-    const nextBtn = wrapper?.querySelector(".carousel-next");
-    const dots = wrapper?.querySelectorAll(".carousel-dot");
+    const items = carousel.querySelectorAll<HTMLElement>(".carousel-item");
+    const prevBtn = wrapper?.querySelector<HTMLButtonElement>(".carousel-prev");
+    const nextBtn = wrapper?.querySelector<HTMLButtonElement>(".carousel-next");
+    const dots = wrapper?.querySelectorAll<HTMLButtonElement>(".carousel-dot");
 
     let currentIndex = 0;
 
@@ -178,6 +183,7 @@ const asset = (path: string) =>
 
   .carousel {
     scrollbar-width: none;
+    -ms-overflow-style: none;
   }
 
   .carousel::-webkit-scrollbar {
