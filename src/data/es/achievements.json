@@ -2,57 +2,21 @@
   "title": "Logros",
   "items": [
         {
-            "image": "/achievements/achievement-1.png",
-            "title": "Primer lugar en reto de innovación",
-            "organization": "Tech Innovation Lab",
-            "organizationUrl": "https://google.com",
+            "image": "/achievements/amh.png",
+            "title": "1er Lugar - Inovación de apps relacionadas con el agua",
+            "organization": "AMH",
+            "organizationUrl": "https://amh.org.mx",
             "date": "2025",
-            "description": "Reconocimiento por desarrollar una solución innovadora enfocada en tecnología, creatividad e impacto.",
-            "tags": ["Innovación", "Tecnología", "Competencia"]
+            "description": "Junto con mi mejor amigo el ing. civil <a href='https://www.linkedin.com/in/joseph-abraham-murcio-marquez-78b136296/?_l=en_US'>Joseph A. Murcio</a> ganamos el 1er lugar del concurso nacional de desarrollo de aplicaciones con temática del agua, con el proyecto <a href='https://github.com/pablo-rojas-dev/aquasense'>aquasense</a>",
+            "tags": ["React", "Express", "ESP32"]
         },
         {
-            "image": "/achievements/achievement-2.png",
-            "title": "Primer lugar en reto de innovación",
-            "organization": "Tech Innovation Lab",
-            "organizationUrl": "https://google.com",
-            "date": "2025",
-            "description": "Reconocimiento por desarrollar una solución innovadora enfocada en tecnología, creatividad e impacto.",
-            "tags": ["Innovación", "Tecnología", "Competencia"]
-        },
-        {
-            "image": "/achievements/achievement-3.png",
-            "title": "Primer lugar en reto de innovación",
-            "organization": "Tech Innovation Lab",
-            "organizationUrl": "https://google.com",
-            "date": "2025",
-            "description": "Reconocimiento por desarrollar una solución innovadora enfocada en tecnología, creatividad e impacto.",
-            "tags": ["Innovación", "Tecnología", "Competencia"]
-        },
-        {
-            "image": "/achievements/achievement-1.png",
-            "title": "Primer lugar en reto de innovación",
-            "organization": "Tech Innovation Lab",
-            "organizationUrl": "https://google.com",
-            "date": "2025",
-            "description": "Reconocimiento por desarrollar una solución innovadora enfocada en tecnología, creatividad e impacto.",
-            "tags": ["Innovación", "Tecnología", "Competencia"]
-        },
-        {
-            "image": "/achievements/achievement-2.png",
-            "title": "Primer lugar en reto de innovación",
-            "organization": "Tech Innovation Lab",
-            "organizationUrl": "https://google.com",
-            "date": "2025",
-            "description": "Reconocimiento por desarrollar una solución innovadora enfocada en tecnología, creatividad e impacto.",
-            "tags": ["Innovación", "Tecnología", "Competencia"]
-        },
-        {
-            "image": "/achievements/achievement-3.png",
-            "title": "Primer lugar en reto de innovación",
-            "organization": "Tech Innovation Lab",
-            "organizationUrl": "https://google.com",
-            "date": "2025",
-            "description": "Reconocimiento por desarrollar una solución innovadora enfocada en tecnología, creatividad e impacto.",
+            "image": "/achievements/anfeca.png",
+            "title": "3er Lugar - Maratón Nacional de Informática",
+            "organization": "Asociación Nacional de Facultades y Escuelas de Contaduría y Administración - ANFECA",
+            "organizationUrl": "http://www.anfeca.unam.mx",
+            "date": "2023",
+            "description": "Junto con mis amigos <a href='https://www.linkedin.com/in/jorge-ernesto-ceballos-guzman-259150296/'>Ernesto</a>, <a href='https://www.linkedin.com/in/tania-islas/'>Tania</a> y <a href='https://www.linkedin.com/in/carlos-jim%C3%A9nez-91a225296/'>Carlos<a/a> ganamos el 3er lugar en el maraton de conocimientos sobre informática.",
             "tags": ["Innovación", "Tecnología", "Competencia"]
         }
     ]

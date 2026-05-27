@@ -2,58 +2,22 @@
   "title": "Achievements",
   "items": [
         {
-            "image": "/achievements/achievement-1.png",
-            "title": "First Place in Innovation Challenge",
-            "organization": "Tech Innovation Lab",
-            "organizationUrl": "https://google.com",
+            "image": "/achievements/amh.png",
+            "title": "1st Place – Innovation in Water Apps",
+            "organization": "AMH",
+            "organizationUrl": "https://amh.org.mx",
             "date": "2025",
-            "description": "Recognized for developing an innovative solution focused on technology, creativity, and impact.",
-            "tags": ["Innovation", "Technology", "Competition"]
+            "description": "Together with my best friend, civil engineer <a href='https://www.linkedin.com/in/joseph-abraham-murcio-marquez-78b136296/?_l=en_US'>Joseph A. Murcio</a>, we won first place in the national water-themed app development contest with the project <a href='https://github.com/pablo-rojas-dev/aquasense'>aquasense</a>.",
+            "tags": ["React", "Express", "ESP32"]
         },
         {
-            "image": "/achievements/achievement-2.png",
-            "title": "First Place in Innovation Challenge",
-            "organization": "Tech Innovation Lab",
-            "organizationUrl": "https://google.com",
-            "date": "2025",
-            "description": "Recognized for developing an innovative solution focused on technology, creativity, and impact.",
-            "tags": ["Innovation", "Technology", "Competition"]
-        },
-        {
-            "image": "/achievements/achievement-3.png",
-            "title": "First Place in Innovation Challenge",
-            "organization": "Tech Innovation Lab",
-            "organizationUrl": "https://google.com",
-            "date": "2025",
-            "description": "Recognized for developing an innovative solution focused on technology, creativity, and impact.",
-            "tags": ["Innovation", "Technology", "Competition"]
-        },
-        {
-            "image": "/achievements/achievement-1.png",
-            "title": "First Place in Innovation Challenge",
-            "organization": "Tech Innovation Lab",
-            "organizationUrl": "https://google.com",
-            "date": "2025",
-            "description": "Recognized for developing an innovative solution focused on technology, creativity, and impact.",
-            "tags": ["Innovation", "Technology", "Competition"]
-        },
-        {
-            "image": "/achievements/achievement-2.png",
-            "title": "First Place in Innovation Challenge",
-            "organization": "Tech Innovation Lab",
-            "organizationUrl": "https://google.com",
-            "date": "2025",
-            "description": "Recognized for developing an innovative solution focused on technology, creativity, and impact.",
-            "tags": ["Innovation", "Technology", "Competition"]
-        },
-        {
-            "image": "/achievements/achievement-3.png",
-            "title": "First Place in Innovation Challenge",
-            "organization": "Tech Innovation Lab",
-            "organizationUrl": "https://google.com",
-            "date": "2025",
-            "description": "Recognized for developing an innovative solution focused on technology, creativity, and impact.",
-            "tags": ["Innovation", "Technology", "Competition"]
+            "image": "/achievements/anfeca.png",
+            "title": "3rd Place – National Computer Science Marathon",
+            "organization": "ANFECA",
+            "organizationUrl": "http://www.anfeca.unam.mx",
+            "date": "2023",
+            "description": "Together with my friends <a href='https://www.linkedin.com/in/jorge-ernesto-ceballos-guzman-259150296/'>Ernesto</a>, <a href='https://www.linkedin.com/in/tania-islas/' >Tania</a> and <a href='https://www.linkedin.com/in/carlos-jim%C3%A9nez-91a225296/'>Carlos</a>, we won 3rd place in the computer science knowledge marathon.",
+            "tags": ["SQL", "Java", "Requirements Management"]
         }
     ]
 }
