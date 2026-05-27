@@ -2,25 +2,18 @@
     "title": "Experiencia",
     "items": [
         {
-            "dateRange": "2023 - 2024",
-            "title": "Trabajo 1",
-            "jobUrl": "https://github.com",
-            "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Sit amet consectetur adipiscing elit quisque faucibus ex. Adipiscing elit quisque faucibus ex sapien vitae pellentesque.",
-            "tags": ["React", "PostgreSQL", "SpringBoot"]
+            "dateRange": "Enero 2025 — Enero 2026",
+            "title": "Becario de investigación — DGAPA UNAM",
+            "jobUrl": "https://dgapa.unam.mx",
+            "description": "Curaduría de documentos para su integración en GPTs personalizados y Gemas de Gemini. Mediante Marker y PDF Sandwich, aplique OCR para convertir libros y artículos a formato Markdown, además generé transcripciones automáticas de videos de Youtube con yt-dlp y whisper.",
+            "tags": ["Python", "Whisper", "Yt-dlp", "Marker"]
         },
         {
-            "dateRange": "2024 - 2025",
-            "title": "Trabajo 2",
-            "jobUrl": "https://github.com",
-            "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Sit amet consectetur adipiscing elit quisque faucibus ex. Adipiscing elit quisque faucibus ex sapien vitae pellentesque.",
-            "tags": ["React", "PostgreSQL", "SpringBoot"]
-        },
-        {
-            "dateRange": "2025 - 2026",
-            "title": "Trabajo 3",
-            "jobUrl": "https://github.com",
-            "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Sit amet consectetur adipiscing elit quisque faucibus ex. Adipiscing elit quisque faucibus ex sapien vitae pellentesque.",
-            "tags": ["React", "PostgreSQL", "SpringBoot"]
+            "dateRange": "Septiembre 2023 — Julio 2025",
+            "title": "Líder de marketing — SIAFI-UNAM",
+            "jobUrl": "https://siafi-unam.org",
+            "description": "Coordinación del equipo de marketing para la producción y publicación de contenido en redes sociales. Implementación de procesos colaborativos, estandarización de assets y sistema de tickets con Canva, Notion y Google Workspace.",
+            "tags": ["Notion", "Gimp", "Google AI Studio", "Python"]
         }
     ]
 }

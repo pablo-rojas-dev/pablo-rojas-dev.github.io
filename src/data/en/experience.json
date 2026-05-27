@@ -2,25 +2,18 @@
     "title": "Experience",
     "items": [
         {
-            "dateRange": "2023 - 2024",
-            "title": "Job 1",
-            "jobUrl": "https://github.com",
-            "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Sit amet consectetur adipiscing elit quisque faucibus ex. Adipiscing elit quisque faucibus ex sapien vitae pellentesque.",
-            "tags": ["React", "PostgreSQL", "SpringBoot"]
+            "dateRange": "January 2025 — January 2026",
+            "title": "Research Intern — DGPA UNAM",
+            "jobUrl": "https://dgapa.unam.mx",
+            "description": "Curated documents for integration into custom GPTs and Gemini Gems. Using Marker and PDF Sandwich, I applied OCR to convert books and articles into Markdown format, and also generated automatic YouTube video transcriptions with yt-dlp and Whisper.",
+            "tags": ["Python", "Whisper", "Yt-dlp", "Marker"]
         },
         {
-            "dateRange": "2024 - 2025",
-            "title": "Job 2",
-            "jobUrl": "https://github.com",
-            "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Sit amet consectetur adipiscing elit quisque faucibus ex. Adipiscing elit quisque faucibus ex sapien vitae pellentesque.",
-            "tags": ["React", "PostgreSQL", "SpringBoot"]
-        },
-        {
-            "dateRange": "2025 - 2026",
-            "title": "Job 3",
-            "jobUrl": "https://github.com",
-            "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Sit amet consectetur adipiscing elit quisque faucibus ex. Adipiscing elit quisque faucibus ex sapien vitae pellentesque.",
-            "tags": ["React", "PostgreSQL", "SpringBoot"]
+            "dateRange": "September 2023 — July 2025",
+            "title": "Marketing Lead — SIAFI-UNAM",
+            "jobUrl": "https://siafi-unam.org",
+            "description": "Coordinated the marketing team for the production and publication of social media content. Implemented collaborative processes, asset standardization, and a ticketing system using Canva, Notion, and Google Workspace.",
+            "tags": ["Notion", "Gimp", "Google AI Studio", "Python"]
         }
     ]
 }
