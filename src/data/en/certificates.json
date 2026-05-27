@@ -2,40 +2,16 @@
     "title": "Certificates",
     "items": [
         {
-            "image": "/certificates/certificate-1.png",
-            "certificateUrl": "https://google.com",
-            "title": "Certificate 1",
-            "date": "2024"
+            "image": "/certificates/google-cibersecurity.png",
+            "certificateUrl": "https://coursera.org/share/3fd135b7d342947e18bf3ad6de088681",
+            "title": "Google Cybersecurity — Google Coursera",
+            "date": "January 2024"
         },
         {
-            "image": "/certificates/certificate-2.png",
-            "certificateUrl": "https://google.com",
-            "title": "Certificate 2",
-            "date": "2025"
-        },
-        {
-            "image": "/certificates/certificate-3.png",
-            "certificateUrl": "https://google.com",
-            "title": "Certificate 3",
-            "date": "2026"
-        },
-        {
-            "image": "/certificates/certificate-1.png",
-            "certificateUrl": "https://google.com",
-            "title": "Certificate 1",
-            "date": "2024"
-        },
-        {
-            "image": "/certificates/certificate-2.png",
-            "certificateUrl": "https://google.com",
-            "title": "Certificate 2",
-            "date": "2025"
-        },
-        {
-            "image": "/certificates/certificate-3.png",
-            "certificateUrl": "https://google.com",
-            "title": "Certificate 3",
-            "date": "2026"
+            "image": "/certificates/google-data-analysis.png",
+            "certificateUrl": "https://coursera.org/share/f5f78c8e32cd0b23ebd61392135f8e26",
+            "title": "Google Data Analysis — Google Coursera",
+            "date": "October 2023"
         }
     ]
 }
